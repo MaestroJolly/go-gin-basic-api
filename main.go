@@ -17,6 +17,15 @@ func setupRouter() *gin.Engine {
 			"response": "ping",
 		})
 	})
+
+	r.GET("/pong/:id", func(c *gin.Context) {
+
+		paramsId := c.Param("id")
+		c.JSON(http.StatusOK, gin.H{
+			"response": paramsId,
+		})
+	})
+
 	return r
 }
 
